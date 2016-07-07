@@ -12,6 +12,10 @@ app.get('/', function (req, res) {
 	res.render('home');
 });
 
+app.post('/api', function (req, res) {
+	res.send('POST request sent to page')
+})
+
 app.listen(3000, function() {
 	console.log('Hello World app running on 3000.');
 });

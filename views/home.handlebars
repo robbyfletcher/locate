@@ -1,1 +1,35 @@
-<h1>Example App: Home</h1>
+<br><br><br><br>
+	<div class="container">
+	<div class="jumbotron">
+	<h1>
+		<div align="center" id="lat">Latitude: </div><br>
+		<div align="center" id="lng">Longitude: </div><br>
+		<div align="center" id="where">
+			<a id="map" href="http://maps.google.com/maps?q=">Where?</a>
+		</div>
+	</h1>
+	</div>
+	</div>
+
+	<script>
+		var loc;
+
+		if ("geolocation" in navigator) 
+		{
+			navigator.geolocation.getCurrentPosition(function(location) {
+				loc = location;
+				document.getElementById("lat").textContent +=
+					location.coords.latitude;
+				document.getElementById("lng").innerHTML +=
+					location.coords.longitude;
+				document.getElementById("map").href += 
+					location.coords.latitude + "," +
+					location.coords.longitude;
+			});	
+		}
+		else 
+		{
+				document.getElementById("jumbotron").innerHTML =
+					"<h1>No Location Support</h1>"
+		}
+	</script>
